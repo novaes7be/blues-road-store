@@ -1,19 +1,29 @@
-const sortSelect = document.getElementById("sort");
+const buttons = document.querySelectorAll(".filter-btn");
 const productsContainer = document.getElementById("products");
 
-sortSelect.addEventListener("change", () => {
-  const cards = Array.from(document.querySelectorAll(".card"));
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
 
-  let sorted;
+    // ativa visual
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
 
-  if (sortSelect.value === "low") {
-    sorted = cards.sort((a, b) => a.dataset.price - b.dataset.price);
-  } else if (sortSelect.value === "high") {
-    sorted = cards.sort((a, b) => b.dataset.price - a.dataset.price);
-  } else {
-    return location.reload();
-  }
+    const sortType = button.dataset.sort;
+    const cards = Array.from(document.querySelectorAll(".card"));
 
-  productsContainer.innerHTML = "";
-  sorted.forEach(card => productsContainer.appendChild(card));
+    let sorted;
+
+    if (sortType === "low") {
+      sorted = cards.sort((a, b) => a.dataset.price - b.dataset.price);
+    } 
+    else if (sortType === "high") {
+      sorted = cards.sort((a, b) => b.dataset.price - a.dataset.price);
+    } 
+    else {
+      sorted = cards; // padrão
+    }
+
+    productsContainer.innerHTML = "";
+    sorted.forEach(card => productsContainer.appendChild(card));
+  });
 });

@@ -91,12 +91,40 @@ body {
 /* FILTER */
 .filter {
   padding: 30px 40px;
+  display: flex;
+  justify-content: center;
 }
 
-.filter select {
-  padding: 10px;
-  border-radius: 8px;
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  background: rgba(255,255,255,0.05);
+  padding: 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.filter-btn {
+  padding: 10px 18px;
   border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* hover elegante */
+.filter-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* botão ativo */
+.filter-btn.active {
+  background: var(--beige);
+  color: var(--black);
+  font-weight: bold;
 }
 
 /* PRODUCTS GRID */
