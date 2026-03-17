@@ -1,0 +1,114 @@
+:root {
+  --brown-dark: #6F4505;
+  --blue-gray: #39454b;
+  --brown: #905444;
+  --beige: #C7997B;
+  --green: #667F57;
+  --white: #fefefe;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: var(--blue-gray);
+  color: white;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  color: var(--beige);
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FILTRO */
+.filter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 40px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--beige);
+  font-weight: bold;
+}
+
+/* GRID */
+.products {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h3,
+.price {
+  color: var(--black);
+}
+
+.price {
+  margin: 10px 0;
+}
+
+/* BOTÃO */
+.btn {
+  padding: 10px 15px;
+  background: var(--brown-dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
