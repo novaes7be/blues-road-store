@@ -1,20 +1,19 @@
 const sortSelect = document.getElementById("sort");
-const container = document.getElementById("products");
+const productsContainer = document.getElementById("products");
 
 sortSelect.addEventListener("change", () => {
-  const cards = Array.from(container.querySelectorAll(".card"));
-  const value = sortSelect.value;
+  const cards = Array.from(document.querySelectorAll(".card"));
 
-  let sortedCards;
+  let sorted;
 
-  if (value === "low") {
-    sortedCards = cards.sort((a, b) => a.dataset.price - b.dataset.price);
-  } else if (value === "high") {
-    sortedCards = cards.sort((a, b) => b.dataset.price - a.dataset.price);
+  if (sortSelect.value === "low") {
+    sorted = cards.sort((a, b) => a.dataset.price - b.dataset.price);
+  } else if (sortSelect.value === "high") {
+    sorted = cards.sort((a, b) => b.dataset.price - a.dataset.price);
   } else {
-    return;
+    return location.reload();
   }
 
-  container.innerHTML = "";
-  sortedCards.forEach(card => container.appendChild(card));
+  productsContainer.innerHTML = "";
+  sorted.forEach(card => productsContainer.appendChild(card));
 });
